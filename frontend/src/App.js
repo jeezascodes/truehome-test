@@ -1,7 +1,10 @@
 import React,{useEffect, useState} from 'react';
+import Building from './components/Building'
 import './App.css';
 
 const App = () => {
+
+  const [realStateList, setRealStateList] = useState([]);
 
   useEffect(() => {
     getRealstate();
@@ -10,12 +13,20 @@ const App = () => {
   const getRealstate = async () => {
     const response = await fetch('http://localhost:3000/posts/');
     const data = await response.json();
-    console.log(data[0].title);
+    setRealStateList(data);
   }
 
   return(
       <div className="App">
-        <h1>Hello</h1>
+        <h1>Lista de Inmuebles</h1>
+      
+      {realStateList.map(property => (
+        <Building 
+          key={property._id}
+          title={property.title} 
+          description={property.description}
+        />
+      ))}
       </div>
     );
 }
