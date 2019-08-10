@@ -1,33 +1,20 @@
-import React,{useEffect, useState} from 'react';
-import Building from './components/Building'
+import React from 'react';
+import Dashboard from './components/Dashboard';
+import Updateinfo from './components/Updateinfo';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 
 const App = () => {
 
-  const [realStateList, setRealStateList] = useState([]);
-
-  useEffect(() => {
-    getRealstate();
-  }, []);
-
-  const getRealstate = async () => {
-    const response = await fetch('http://localhost:3000/posts/');
-    const data = await response.json();
-    setRealStateList(data);
-  }
-
   return(
-      <div className="App">
-        <h1>Lista de Inmuebles</h1>
-      
-      {realStateList.map(property => (
-        <Building 
-          key={property._id}
-          title={property.title} 
-          description={property.description}
-        />
-      ))}
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/update" component={Updateinfo} />  
+          </Switch>
+        </div>  
+      </Router>  
     );
 }
 
