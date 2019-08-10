@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import Updateadress from './Updateadress';
+import Updatepersonal from './Updatepersonal';
 
 const Updateinfo = ({match}) => {
 
@@ -7,6 +8,10 @@ const Updateinfo = ({match}) => {
 	const buildingId = match.params.id
 
 	const [buildingInfo, setBuildingInfo] = useState({});
+	const [step, setStep] = useState(1);
+
+	const nextStep = () => setStep(step + 1);
+	const prevStep = () => setStep(step - 1);
 
 	useEffect(() => {
 	  getBuildingInfo();
@@ -16,19 +21,30 @@ const Updateinfo = ({match}) => {
 	  const response = await fetch(`http://localhost:3000/posts/${buildingId}`);
 	  const data = await response.json();
 	  setBuildingInfo(data);
-	  console.log(data);
-	 }  
+	 };  
 
+	
 
-	return(
-			<div className="">
-				<h1>{buildingInfo.title}</h1>
-				
-				<Link to="/">
-					<button>Cancelar</button>
-				</Link>
-			</div>
-		);
+	switch(step) {
+		case 1: return(
+				<div className="">
+					<h1 onClick={nextStep}>Paso {step}</h1>
+					<Updateadress title={buildingInfo.title} onNext={nextStep} onPrev={prevStep}/>
+				</div>
+			)
+		case 2: return(
+				<div className="">
+					<h1 onClick={nextStep}>Paso {step}</h1>
+					<Updatepersonal description={buildingInfo.description} onNext={nextStep} onPrev={prevStep}/>
+				</div>
+			)
+		default: return(
+				<div className="">
+					<h1 onClick={nextStep}>Paso {step}</h1>
+					<Updateadress title={buildingInfo.title} onNext={nextStep} onPrev={prevStep}/>
+				</div>
+			)
+	}
 }
 
 export default Updateinfo;
