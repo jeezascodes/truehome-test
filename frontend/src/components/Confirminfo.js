@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import axios from 'axios';
+//import axios from 'axios';
 
-const Confirminfo = ({title, description, onNext, onPrev, onChange, step, postId}) => {
+const Confirminfo = ({title, description, onPrev, step, onConfirm}) => {
 
 	
 
-	const Update = () => {
+	/*const Update = () => {
 		const buildingId = postId;
 
 		const updatedInfo = {
@@ -21,14 +21,14 @@ const Confirminfo = ({title, description, onNext, onPrev, onChange, step, postId
 			console.log(res.data);
 		});
 		console.log('confirmado');
-	};
+	};*/
 
 	return(
 			<div className="">
 				<h1>Paso {step} - Confirma que la información sea correcta</h1>
 				<h2>Titulo: {title}</h2>
 				<h3>Descripción: {description}</h3>
-				<button onClick={Update}>Confirmar</button>		
+				<button onClick={onConfirm}>Confirmar</button>		
 				<button onClick={onPrev}>Atrás</button>		
 				<br />
 				<br />

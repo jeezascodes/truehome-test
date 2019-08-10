@@ -3,6 +3,7 @@ import Updateadress from './Updateadress';
 import Updatepersonal from './Updatepersonal';
 import Updateprice from './Updateprice';
 import Confirminfo from './Confirminfo';
+import axios from 'axios';
 
 
 const Updateinfo = ({match}) => {
@@ -35,7 +36,19 @@ const Updateinfo = ({match}) => {
 		setBuildingDescription(e.target.value);
 	}
 
+	const Update = () => {
+		const updatedInfo = {
+			'title': buildingTitle,
+			'description': buildingDescription
+		}
 
+		axios
+		.patch(`http://localhost:3000/posts/${buildingId}`, updatedInfo)
+		.then(res => {
+			console.log(res);
+			console.log(res.data);
+		});
+	};
 	
 
 	switch(step) {
@@ -44,7 +57,6 @@ const Updateinfo = ({match}) => {
 					<Updateadress 
 					title={buildingTitle} 
 					onNext={nextStep} 
-					onPrev={prevStep} 
 					onChange={handleChangeTitle} 
 					step={step}/>
 				</div>
@@ -75,11 +87,9 @@ const Updateinfo = ({match}) => {
 					<Confirminfo
 					title={buildingTitle} 
 					description={buildingDescription} 
-					onNext={nextStep} 
 					onPrev={prevStep} 
-					onChange={handleChangeDescription}
 					step={step}
-					postId={buildingId}
+					onConfirm={Update}
 					/>
 				</div>
 			)
