@@ -1,13 +1,16 @@
 import React,{useEffect, useState} from 'react';
 import Updateadress from './Updateadress';
 import Updatepersonal from './Updatepersonal';
+import Updateprice from './Updateprice';
+import Confirminfo from './Confirminfo';
 
 const Updateinfo = ({match}) => {
 
 	//GET BUILDING ID FROM MATCH PROP
 	const buildingId = match.params.id
 
-	const [buildingInfo, setBuildingInfo] = useState({});
+	const [buildingTitle, setBuildingTitle] = useState('');
+	const [buildingDescription, setBuildingDescription] = useState('');
 	const [step, setStep] = useState(1);
 
 	const nextStep = () => setStep(step + 1);
@@ -20,28 +23,67 @@ const Updateinfo = ({match}) => {
 	const getBuildingInfo = async () => {
 	  const response = await fetch(`http://localhost:3000/posts/${buildingId}`);
 	  const data = await response.json();
-	  setBuildingInfo(data);
+	  setBuildingTitle(data.title);
+	  setBuildingDescription(data.description);
 	 };  
+
+	const handleChangeTitle = (e) =>  {
+	 	setBuildingTitle(e.target.value);
+	}
+	const handleChangeDescription = (e) =>  {
+		setBuildingDescription(e.target.value);
+	}
 
 	
 
 	switch(step) {
 		case 1: return(
 				<div className="">
-					<h1 onClick={nextStep}>Paso {step}</h1>
-					<Updateadress title={buildingInfo.title} onNext={nextStep} onPrev={prevStep}/>
+					<Updateadress 
+					title={buildingTitle} 
+					onNext={nextStep} 
+					onPrev={prevStep} 
+					onChange={handleChangeTitle} 
+					step={step}/>
 				</div>
 			)
 		case 2: return(
 				<div className="">
-					<h1 onClick={nextStep}>Paso {step}</h1>
-					<Updatepersonal description={buildingInfo.description} onNext={nextStep} onPrev={prevStep}/>
+					<Updatepersonal 
+					description={buildingDescription} 
+					onNext={nextStep} 
+					onPrev={prevStep} 
+					onChange={handleChangeDescription}
+					step={step}
+					/>
+				</div>
+			)
+		case 3: return(
+				<div className="">
+					<Updateprice
+					description={buildingDescription} 
+					onNext={nextStep} 
+					onPrev={prevStep} 
+					onChange={handleChangeDescription}
+					step={step}
+					/>
+				</div>
+			)
+		case 4: return(
+				<div className="">
+					<Confirminfo
+					title={buildingTitle} 
+					description={buildingDescription} 
+					onNext={nextStep} 
+					onPrev={prevStep} 
+					onChange={handleChangeDescription}
+					step={step}
+					/>
 				</div>
 			)
 		default: return(
 				<div className="">
-					<h1 onClick={nextStep}>Paso {step}</h1>
-					<Updateadress title={buildingInfo.title} onNext={nextStep} onPrev={prevStep}/>
+					<Updateadress title={buildingTitle} onNext={nextStep} onPrev={prevStep}/>
 				</div>
 			)
 	}
