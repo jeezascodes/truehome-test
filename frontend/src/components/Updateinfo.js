@@ -1,10 +1,29 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 
-const Updateinfo = ({title, description}) => {
+const Updateinfo = ({match}) => {
+
+	//GET BUILDING ID FROM MATCH PROP
+	const buildingId = match.params.id
+
+	const [buildingInfo, setBuildingInfo] = useState({});
+
+	useEffect(() => {
+	  getBuildingInfo();
+	}, []);
+
+	const getBuildingInfo = async () => {
+	  const response = await fetch(`http://localhost:3000/posts/${buildingId}`);
+	  const data = await response.json();
+	  setBuildingInfo(data);
+	  console.log(data);
+	 }  
+
+
 	return(
 			<div className="">
-				<h1>here should be a form</h1>
+				<h1>{buildingInfo.title}</h1>
+				
 				<Link to="/">
 					<button>Cancelar</button>
 				</Link>
