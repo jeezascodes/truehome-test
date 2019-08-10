@@ -7,7 +7,7 @@ const Updateprice = ({description, onNext, onPrev, onChange, step}) => {
 			<div className="">
 				<h1>Paso {step} - Editar el precio</h1>
 				<form>
-					<input type="text" value={description} onChange={onChange}/>
+					<input type="text" value={step} onChange={onChange}/>
 					<br />	
 				</form>
 				<button onClick={onNext}>Continuar</button>	

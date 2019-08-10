@@ -4,6 +4,7 @@ import Updatepersonal from './Updatepersonal';
 import Updateprice from './Updateprice';
 import Confirminfo from './Confirminfo';
 
+
 const Updateinfo = ({match}) => {
 
 	//GET BUILDING ID FROM MATCH PROP
@@ -34,6 +35,7 @@ const Updateinfo = ({match}) => {
 		setBuildingDescription(e.target.value);
 	}
 
+
 	
 
 	switch(step) {
@@ -61,7 +63,6 @@ const Updateinfo = ({match}) => {
 		case 3: return(
 				<div className="">
 					<Updateprice
-					description={buildingDescription} 
 					onNext={nextStep} 
 					onPrev={prevStep} 
 					onChange={handleChangeDescription}
@@ -78,6 +79,7 @@ const Updateinfo = ({match}) => {
 					onPrev={prevStep} 
 					onChange={handleChangeDescription}
 					step={step}
+					postId={buildingId}
 					/>
 				</div>
 			)
