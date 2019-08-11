@@ -14,6 +14,7 @@ const Updateinfo = ({match}) => {
 	const [buildingTitle, setBuildingTitle] = useState('');
 	const [buildingDescription, setBuildingDescription] = useState('');
 	const [step, setStep] = useState(1);
+	const [confirmed, setConfirmed] = useState(false);
 
 	const nextStep = () => setStep(step + 1);
 	const prevStep = () => setStep(step - 1);
@@ -47,9 +48,10 @@ const Updateinfo = ({match}) => {
 		.then(res => {
 			console.log(res);
 			console.log(res.data);
+			setConfirmed(true);
 		});
+		
 	};
-	
 
 	switch(step) {
 		case 1: return(
@@ -90,6 +92,7 @@ const Updateinfo = ({match}) => {
 					onPrev={prevStep} 
 					step={step}
 					onConfirm={Update}
+					confirmed={confirmed}
 					/>
 				</div>
 			)

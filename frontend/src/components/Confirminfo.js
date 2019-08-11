@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect } from 'react-router-dom';
 //import axios from 'axios';
 
-const Confirminfo = ({title, description, onPrev, step, onConfirm}) => {
+const Confirminfo = ({title, description, onPrev, step, onConfirm, confirmed}) => {
 
 	
 
@@ -22,7 +22,9 @@ const Confirminfo = ({title, description, onPrev, step, onConfirm}) => {
 		});
 		console.log('confirmado');
 	};*/
-
+	if (confirmed) {
+       return <Redirect to='/'/>;
+    }
 	return(
 			<div className="">
 				<h1>Paso {step} - Confirma que la información sea correcta</h1>
@@ -35,6 +37,7 @@ const Confirminfo = ({title, description, onPrev, step, onConfirm}) => {
 				<Link to="/">
 					<button>Cancelar</button>
 				</Link>		
+
 			</div>
 		);
 }
