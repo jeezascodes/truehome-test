@@ -18,8 +18,9 @@ const Dashboard = () => {
   }
 
   return(
-      <div className="App">
-        <h1>Lista de Inmuebles</h1>
+      <div className="dasboard">
+        <h1 className="dashboard__app-bar">TrueHome Test</h1>
+        <h2>Listado de propiedades</h2>
         <section className="card-container">
           {realStateList.map(property => (
           <Building 
