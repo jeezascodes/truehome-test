@@ -31,9 +31,9 @@ const Dashboard = () => {
             name={property.personal.name}
             email={property.personal.email}
             phone={property.personal.phone}
-            neighborhood={property.adress.colonia}
-            street={property.adress.calle}
-            number={property.adress.numero}
+            neighborhood={property.adress.neighborhood}
+            street={property.adress.street}
+            number={property.adress.number}
             zip={property.adress.zip}
           />
           ))}  

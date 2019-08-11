@@ -12,8 +12,11 @@ const Updateinfo = ({match}) => {
 	//GET BUILDING ID FROM MATCH PROP
 	const buildingId = match.params.id
 
-	const [buildingTitle, setBuildingTitle] = useState('');
-	const [buildingDescription, setBuildingDescription] = useState('');
+	const [buildingPrice, setBuildingPrice] = useState('');
+	const [neighborhood, setNeighborhood] = useState('');
+	const [street, setStreet] = useState('');
+	const [number, setNumber] = useState('');
+	const [zip, setZip] = useState('');
 	const [step, setStep] = useState(1);
 	const [confirmed, setConfirmed] = useState(false);
 
@@ -25,23 +28,37 @@ const Updateinfo = ({match}) => {
 	}, []);
 
 	const getBuildingInfo = async () => {
-	  const response = await fetch(`http://localhost:3000/posts/${buildingId}`);
+	  const response = await fetch(`http://localhost:9000/posts/${buildingId}`);
 	  const data = await response.json();
-	  setBuildingTitle(data.title);
-	  setBuildingDescription(data.description);
+	  setBuildingPrice(data.price);
+	  setNeighborhood(data.adress.neighborhood);
+	  setStreet(data.adress.street);
+	  setNumber(data.adress.number);
+	  setZip(data.adress.zip);
 	 };  
 
-	const handleChangeTitle = (e) =>  {
-	 	setBuildingTitle(e.target.value);
+	const handleChangePrice = (e) =>  {
+	 	setBuildingPrice(e.target.value);
 	}
-	const handleChangeDescription = (e) =>  {
-		setBuildingDescription(e.target.value);
+	const handleNeighborhood = (e) =>  {
+		setNeighborhood(e.target.value);
+	}
+	const handleStreet = (e) =>  {
+	 	setStreet(e.target.value);
+	}
+	const handleNumber = (e) =>  {
+		setNumber(e.target.value);
+	}
+	const handleZip = (e) =>  {
+		setZip(e.target.value);
 	}
 
 	const Update = () => {
 		const updatedInfo = {
-			'title': buildingTitle,
-			'description': buildingDescription
+			'price': buildingPrice,
+			'adress': {
+				colonia: neighborhood
+			}
 		}
 
 		axios
@@ -59,20 +76,27 @@ const Updateinfo = ({match}) => {
 				<div className="form__container">
 					<div className="form__progress-bar" style={{'width': `${100/3}%`}}></div>
 					<Updateadress 
-					title={buildingTitle} 
+					neighborhood={neighborhood} 
+					street={street}
+					number={number}
+					zip={zip}
 					onNext={nextStep} 
-					onChange={handleChangeTitle} 
-					step={step}/>
+					onNeighborhood={handleNeighborhood}
+					onStreet={handleStreet}
+					onNumber={handleNumber}
+					onZip={handleZip} 
+					step={step}
+					/>
 				</div>
 			)
 		case 2: return(
 				<div className="form__container">
 					<div className="form__progress-bar" style={{'width': `${100/3*2}%`}}></div>
 					<Updatepersonal 
-					description={buildingDescription} 
+					neighborhood={neighborhood} 
 					onNext={nextStep} 
 					onPrev={prevStep} 
-					onChange={handleChangeDescription}
+					onChange={handleNeighborhood}
 					step={step}
 					/>
 				</div>
@@ -81,9 +105,10 @@ const Updateinfo = ({match}) => {
 				<div className="form__container">
 					<div className="form__progress-bar" ></div>
 					<Updateprice
+					price={buildingPrice}
 					onNext={nextStep} 
 					onPrev={prevStep} 
-					onChange={handleChangeDescription}
+					onChange={handleChangePrice}
 					step={step}
 					/>
 				</div>
@@ -92,18 +117,13 @@ const Updateinfo = ({match}) => {
 				<div className="form__container">
 					<div className="form__progress-bar" ></div>
 					<Confirminfo
-					title={buildingTitle} 
-					description={buildingDescription} 
+					title={buildingPrice} 
+					description={handleNeighborhood} 
 					onPrev={prevStep} 
 					step={step}
 					onConfirm={Update}
 					confirmed={confirmed}
 					/>
-				</div>
-			)
-		default: return(
-				<div className="">
-					<Updateadress title={buildingTitle} onNext={nextStep} onPrev={prevStep}/>
 				</div>
 			)
 	}

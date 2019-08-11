@@ -6,9 +6,9 @@ const PostSchema = mongoose.Schema({
 	price: String,
 	adress: {
 		zip: String,
-		colonia: String,
-		calle: String,
-		numero: Number,
+		neighborhood: String,
+		street: String,
+		number: Number,
 	},
 	personal: {
 		name: String,
