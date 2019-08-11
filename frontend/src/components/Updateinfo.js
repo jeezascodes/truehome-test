@@ -12,11 +12,16 @@ const Updateinfo = ({match}) => {
 	//GET BUILDING ID FROM MATCH PROP
 	const buildingId = match.params.id
 
+	const [image, setImage] = useState('');
 	const [buildingPrice, setBuildingPrice] = useState('');
 	const [neighborhood, setNeighborhood] = useState('');
 	const [street, setStreet] = useState('');
 	const [number, setNumber] = useState('');
 	const [zip, setZip] = useState('');
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [phone, setPhone] = useState('');
+	//const zip = useFormInput(data.adress.zip);
 	const [step, setStep] = useState(1);
 	const [confirmed, setConfirmed] = useState(false);
 
@@ -30,11 +35,15 @@ const Updateinfo = ({match}) => {
 	const getBuildingInfo = async () => {
 	  const response = await fetch(`http://localhost:9000/posts/${buildingId}`);
 	  const data = await response.json();
+	  setImage(data.image);
 	  setBuildingPrice(data.price);
 	  setNeighborhood(data.adress.neighborhood);
 	  setStreet(data.adress.street);
 	  setNumber(data.adress.number);
 	  setZip(data.adress.zip);
+	  setName(data.personal.name);
+	  setEmail(data.personal.email);
+	  setPhone(data.personal.phone);
 	 };  
 
 	const handleChangePrice = (e) =>  {
@@ -52,17 +61,46 @@ const Updateinfo = ({match}) => {
 	const handleZip = (e) =>  {
 		setZip(e.target.value);
 	}
+	const handleName = (e) =>  {
+	 	setName(e.target.value);
+	}
+	const handleEmail = (e) =>  {
+		setEmail(e.target.value);
+	}
+	const handlePhone = (e) =>  {
+		setPhone(e.target.value);
+	}
+
+	/*function useFormInput(initialValue) {
+			const [value, setValue] = useState(initialValue);
+			const handleChange = (e) =>  {
+			setValue(e.target.value);
+		}
+		return {
+			value,
+			onChange: handleChange
+		};
+	} */
 
 	const Update = () => {
 		const updatedInfo = {
+			'image': image,
 			'price': buildingPrice,
-			'adress': {
-				colonia: neighborhood
+			'adress': { 
+				'zip': zip, 
+				'neighborhood': neighborhood,
+				'street': street,
+				'number': number
+			},
+			'personal': {
+				'name': name, 
+				'email': email, 
+				'phone': phone
 			}
 		}
 
 		axios
-		.patch(`http://localhost:3000/posts/${buildingId}`, updatedInfo)
+		.patch(`http://localhost:9000/posts/${buildingId}`, updatedInfo)
 		.then(res => {
 			console.log(res);
 			console.log(res.data);
@@ -93,10 +131,14 @@ const Updateinfo = ({match}) => {
 				<div className="form__container">
 					<div className="form__progress-bar" style={{'width': `${100/3*2}%`}}></div>
 					<Updatepersonal 
-					neighborhood={neighborhood} 
+					name={name} 
+					email={email} 
+					phone={phone} 
 					onNext={nextStep} 
 					onPrev={prevStep} 
-					onChange={handleNeighborhood}
+					onName={handleName}
+					onEmail={handleEmail}
+					onPhone={handlePhone}
 					step={step}
 					/>
 				</div>
@@ -117,9 +159,15 @@ const Updateinfo = ({match}) => {
 				<div className="form__container">
 					<div className="form__progress-bar" ></div>
 					<Confirminfo
-					title={buildingPrice} 
-					description={handleNeighborhood} 
+					neighborhood={neighborhood} 
+					street={street}
+					number={number}
+					zip={zip}
+					name={name} 
+					email={email} 
+					phone={phone} 
 					onPrev={prevStep} 
+					price={buildingPrice}
 					step={step}
 					onConfirm={Update}
 					confirmed={confirmed}

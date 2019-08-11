@@ -1,11 +1,11 @@
 import React,{useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 
-const Building = ({id, price,name,email,phone, neighborhood, street, number, zip}) => {
+const Building = ({id,image, price,name,email,phone, neighborhood, street, number, zip}) => {
 	return(
 			<Link to={`/update/${id}`} className="card-wrapper">
 				<div className="building__card">
-					<img className="card__image" src="https://media.truehome.com.mx/media/original_images/891_Estancia_.jpg" alt="{price}" />
+					<img className="card__image" src={image} alt="{price}" />
 					<div className="card__body">
 						<h1 >{price}</h1>
 						<ul>

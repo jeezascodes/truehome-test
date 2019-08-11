@@ -27,6 +27,7 @@ const Dashboard = () => {
           <Building 
             key={property._id}
             id={property._id}
+            image={property.image} 
             price={property.price} 
             name={property.personal.name}
             email={property.personal.email}

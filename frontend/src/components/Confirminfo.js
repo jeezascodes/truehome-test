@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, Redirect } from 'react-router-dom';
 //import axios from 'axios';
 
-const Confirminfo = ({title, description, onPrev, step, onConfirm, confirmed}) => {
+const Confirminfo = ({neighborhood, street, number, zip, name, email, phone, price, onPrev, step, onConfirm, confirmed}) => {
 
 	if (confirmed) {
        return <Redirect to='/'/>;
@@ -11,8 +11,12 @@ const Confirminfo = ({title, description, onPrev, step, onConfirm, confirmed}) =
 			<div className="form__wrapper">
 				<h1 className="form__title">Paso {step} - Confirma que la información sea correcta</h1>
 				<div className="form">
-					<h2>Titulo: {title}</h2>
-					<h3>Descripción: {description}</h3>
+					<h2>Precio: {price}</h2>
+					<h3>Dirección: {neighborhood + ' ,' + street + ' ,' + number + ' ,' + zip}</h3>
+					<h3>Datos del vendedor: </h3>
+					<h4>Nombre: {name}</h4>
+					<h4>Email: {email}</h4>
+					<h4>Teléfono: {phone}</h4>
 					<button className="form__button" onClick={onConfirm}>Confirmar</button>		
 					<button className="form__button--secondary" onClick={onPrev}>Atrás</button>			
 				</div>
