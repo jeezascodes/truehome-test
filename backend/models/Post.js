@@ -1,10 +1,20 @@
+
 const mongoose = require('mongoose');
 
 const PostSchema = mongoose.Schema({
 	image: String,
 	price: String,
-	adress: Array,
-	personal: Array
+	adress: {
+		zip: String,
+		colonia: String,
+		calle: String,
+		numero: Number,
+	},
+	personal: {
+		name: String,
+		email: String,
+		phone: String,
+	}
 
 });
 

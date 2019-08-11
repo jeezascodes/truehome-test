@@ -12,10 +12,10 @@ const Dashboard = () => {
   }, []);
 
   const getRealstate = async () => {
-    const response = await fetch('http://localhost:3000/posts/');
+    const response = await fetch('http://localhost:9000/posts/');
     const data = await response.json();
     setRealStateList(data);
-  }
+  };
 
   return(
       <div className="dasboard">
@@ -23,11 +23,18 @@ const Dashboard = () => {
         <h2>Listado de propiedades</h2>
         <section className="card-container">
           {realStateList.map(property => (
+
           <Building 
             key={property._id}
             id={property._id}
-            title={property.title} 
-            description={property.description}
+            price={property.price} 
+            name={property.personal.name}
+            email={property.personal.email}
+            phone={property.personal.phone}
+            neighborhood={property.adress.colonia}
+            street={property.adress.calle}
+            number={property.adress.numero}
+            zip={property.adress.zip}
           />
           ))}  
         </section>    
