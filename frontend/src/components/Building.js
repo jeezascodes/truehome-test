@@ -7,7 +7,7 @@ const Building = ({id, title, description}) => {
 				<div className="building__card">
 					<img className="card__image" src="https://media.truehome.com.mx/media/original_images/891_Estancia_.jpg" alt="{title}" />
 					<div className="card__body">
-						<h1>{title}</h1>
+						<h1 >{title}</h1>
 						<ul>
 							<li>tlff 55562211</li>
 							<li>@ test@test.com</li>

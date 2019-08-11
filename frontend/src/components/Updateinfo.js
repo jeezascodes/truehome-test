@@ -4,6 +4,7 @@ import Updatepersonal from './Updatepersonal';
 import Updateprice from './Updateprice';
 import Confirminfo from './Confirminfo';
 import axios from 'axios';
+import './Updateinfo.css';
 
 
 const Updateinfo = ({match}) => {
@@ -55,7 +56,8 @@ const Updateinfo = ({match}) => {
 
 	switch(step) {
 		case 1: return(
-				<div className="">
+				<div className="form__container">
+					<div className="form__progress-bar" style={{'width': `${100/3}%`}}></div>
 					<Updateadress 
 					title={buildingTitle} 
 					onNext={nextStep} 
@@ -64,7 +66,8 @@ const Updateinfo = ({match}) => {
 				</div>
 			)
 		case 2: return(
-				<div className="">
+				<div className="form__container">
+					<div className="form__progress-bar" style={{'width': `${100/3*2}%`}}></div>
 					<Updatepersonal 
 					description={buildingDescription} 
 					onNext={nextStep} 
@@ -75,7 +78,8 @@ const Updateinfo = ({match}) => {
 				</div>
 			)
 		case 3: return(
-				<div className="">
+				<div className="form__container">
+					<div className="form__progress-bar" ></div>
 					<Updateprice
 					onNext={nextStep} 
 					onPrev={prevStep} 
@@ -85,7 +89,8 @@ const Updateinfo = ({match}) => {
 				</div>
 			)
 		case 4: return(
-				<div className="">
+				<div className="form__container">
+					<div className="form__progress-bar" ></div>
 					<Confirminfo
 					title={buildingTitle} 
 					description={buildingDescription} 

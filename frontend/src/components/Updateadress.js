@@ -6,17 +6,16 @@ const Updateadress = ({title, onNext, onChange, step}) => {
 
 
 	return(
-			<div className="">
-				<h1>Paso {step} - Editar dirección del inmueble</h1>
-				<form>
-					<input type="text" value={title} onChange={onChange} />
+			<div className="form__wrapper">
+				<h1 className="form__title">Paso {step} - Editar dirección del inmueble</h1>
+				<form className="form">
+					<input className="form__input-text" type="text" value={title} onChange={onChange} />
 					<br />
+					<button className="form__button" onClick={onNext}>Continuar</button>
 				</form>
-				<button onClick={onNext}>Continuar</button>	
-				<br />
-				<br />
+					
 				<Link to="/">
-					<button>Cancelar</button>
+					<button className="form__button--secondary">Cancelar</button>
 				</Link>		
 			</div>
 		);

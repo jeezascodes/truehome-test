@@ -4,38 +4,21 @@ import {Link, Redirect } from 'react-router-dom';
 
 const Confirminfo = ({title, description, onPrev, step, onConfirm, confirmed}) => {
 
-	
-
-	/*const Update = () => {
-		const buildingId = postId;
-
-		const updatedInfo = {
-			'title': title,
-			'description': description
-		}
-
-		axios
-		.patch(`http://localhost:3000/posts/${buildingId}`, updatedInfo)
-		.then(res => {
-			console.log(res);
-			console.log(res.data);
-		});
-		console.log('confirmado');
-	};*/
 	if (confirmed) {
        return <Redirect to='/'/>;
     }
 	return(
-			<div className="">
-				<h1>Paso {step} - Confirma que la información sea correcta</h1>
-				<h2>Titulo: {title}</h2>
-				<h3>Descripción: {description}</h3>
-				<button onClick={onConfirm}>Confirmar</button>		
-				<button onClick={onPrev}>Atrás</button>		
-				<br />
-				<br />
+			<div className="form__wrapper">
+				<h1 className="form__title">Paso {step} - Confirma que la información sea correcta</h1>
+				<div className="form">
+					<h2>Titulo: {title}</h2>
+					<h3>Descripción: {description}</h3>
+					<button className="form__button" onClick={onConfirm}>Confirmar</button>		
+					<button className="form__button--secondary" onClick={onPrev}>Atrás</button>			
+				</div>
+
 				<Link to="/">
-					<button>Cancelar</button>
+					<button className="form__button--secondary">Cancelar</button>
 				</Link>		
 
 			</div>
