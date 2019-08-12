@@ -10,9 +10,9 @@ const Confirminfo = ({neighborhood, street, number, zip, name, email, phone, pri
 			<div className="form__wrapper">
 				<h1 className="form__title">Paso {step} - Confirma que la información sea correcta</h1>
 				<div className="form">
-					<h2 className="form__confirm-data">Precio: {price}</h2>
-					<h3 className="form__confirm-data">Dirección: {neighborhood + ' ,' + street + ' ,' + number + ' ,' + zip}</h3>
-					<h3 className="form__confirm-data">Datos del vendedor: </h3>
+					<h2 className="form__confirm-data"><strong className="confirm-data__strong">Precio:</strong> {price}</h2>
+					<h3 className="form__confirm-data"><strong className="confirm-data__strong">Dirección:</strong> {neighborhood + ' ,' + street + ' ,' + number + ' ,' + zip}</h3>
+					<h3 className="form__confirm-data"><strong className="confirm-data__strong">Datos del vendedor:</strong> </h3>
 					<h4 className="form__confirm-data">Nombre: {name}</h4>
 					<h4 className="form__confirm-data">Email: {email}</h4>
 					<h4 className="form__confirm-data">Teléfono: {phone}</h4>
