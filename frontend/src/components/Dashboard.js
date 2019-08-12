@@ -4,7 +4,6 @@ import './Dashboard.css';
 
 
 const Dashboard = () => {
-
   const [realStateList, setRealStateList] = useState([]);
 
   useEffect(() => {

@@ -40,7 +40,7 @@ router.get('/:postId', async (req,res) => {
 	}
 });
 
-//Update post 
+//UDATE POST
 router.patch('/:postId', async (req,res) => {
 	try{
 		const updatedPost = await Post.updateOne(

@@ -39,11 +39,9 @@ Npm packages and dependencies used in the project
 
 - Just for test purposes a mono-repo structure with both backend and frontend in separate folders was implemented, this is not the ideal structure for a real project that is going to be deployed, but instead was the easiest way to structure things for a basic project like this
 
-- On the backend side a mongo database was created as it provided for a light easy to use and test the model, a real project might benefit from a realational DB
+- On the backend side a mongo database was created as it provided for a light, easy to use test model, a real project might benefit from a realational DB
 
 - There was no use of UI themes or css prepocessors since a basic project like this wouldn't have benefited tremendously from them and would only had created a lot of unnecessary boiler plate code
-
--
 
 ## Things that could be improved
 

@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import UserIcon from './icon-components/UserIcon';
 import EmailIcon from './icon-components/EmailIcon';
 import PhoneIcon from './icon-components/PhoneIcon';
-import './Cards.css';
+import './Building.css';
 import {Link} from 'react-router-dom';
 
 const Building = ({id,image, price,name,email,phone, neighborhood, street, number, zip}) => {
