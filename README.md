@@ -37,10 +37,10 @@ Npm packages and dependencies used in the project
 
 ## Things that could be improved
 
--Developer dependencies should be save under dev dependencies and not as general dependencies
--Gitflow (feature specific branches, development branch etc) should be implemented to have a better organized repo
--Create different mongo collections for every specific set of related data or alternatively use SQL
--Use Factoriy Functions to handle event changes instead of having a separate function for every input change
--Use Sass for easier component specific css
--Use separate component folders for every specific component and its childs
--Use a dependency like SVGR to handle transforming SVG files into flexible React components
+- Developer dependencies should be saved under dev dependencies and not as general dependencies
+- Gitflow (feature specific branches, development branch etc) should be implemented to have a better organized repo
+- Create different mongo collections for every specific set of related data or alternatively use SQL
+- Use Factoriy Functions to handle event changes instead of having a separate function for every input change
+- Use Sass for easier component specific css
+- Use separate component folders for every specific component and its childs
+- Use a dependency like SVGR to handle transforming SVG files into flexible React components
