@@ -16,12 +16,12 @@ http://localhost:8000/ should Open automatically, if not, then open http://local
 
 ## What’s Included?
 
-Nps packages and dependencies used in the project
+Npm packages and dependencies used in the project
 
 ### Backend
 
-- React, JSX, ES6, TypeScript and Flow syntax support.
-- Language extras beyond ES6 like the object spread operator.
+- Express, (Robust routing,HTTP helpers (redirection, caching, etc),Content negotiation) https://www.npmjs.com/package/express
+- nodemon, (automatically restarting the node application when file changes in the directory are detected) https://www.npmjs.com/package/nodemon.
 - Autoprefixed CSS, so you don’t need `-webkit-` or other prefixes.
 - A fast interactive unit test runner with built-in support for coverage reporting.
 - A live development server that warns about common mistakes.
