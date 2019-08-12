@@ -26,3 +26,11 @@ Npm packages and dependencies used in the project
 - dotenv, (Storing configuration in the environment separate from code) https://www.npmjs.com/package/dotenv.
 - body-parser (Parse incoming request bodies in a middleware before your handlers) https://www.npmjs.com/package/body-parser.
 - cors (for providing a Connect/Express middleware that can be used to enable CORS with various options) https://www.npmjs.com/package/cors.
+
+### Frontend
+
+- react, (JavaScript library for creating user interfaces) https://www.npmjs.com/package/react
+- react-dom, (This package serves as the entry point to the DOM and server renderers for React) https://www.npmjs.com/package/react-dom
+- react-scripts, ( includes scripts and configuration used by Create React App). https://www.npmjs.com/package/react-scripts
+- dotenv, (Storing configuration in the environment separate from code) https://www.npmjs.com/package/dotenv.
+- axios (Promise based HTTP client for the browser and node.js) https://www.npmjs.com/package/axios.
