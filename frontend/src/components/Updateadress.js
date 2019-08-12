@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 
 const Updateadress = ({neighborhood, street, number,zip, onNext, onNeighborhood,onStreet, onNumber, onZip, step}) => {
 
-
 	return(
 			<div className="form__wrapper">
 				<h1 className="form__title">Paso {step} - Editar dirección del inmueble</h1>

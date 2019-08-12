@@ -10,6 +10,7 @@ const Dashboard = () => {
     getRealstate();
   }, []);
 
+  //MAKES CALL TO THE API AND GETS EVERY BUILDING POST
   const getRealstate = async () => {
     const response = await fetch('http://localhost:9000/posts/');
     const data = await response.json();

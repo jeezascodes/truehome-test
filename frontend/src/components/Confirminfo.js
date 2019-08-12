@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link, Redirect } from 'react-router-dom';
-//import axios from 'axios';
 
 const Confirminfo = ({neighborhood, street, number, zip, name, email, phone, price, onPrev, step, onConfirm, confirmed}) => {
 

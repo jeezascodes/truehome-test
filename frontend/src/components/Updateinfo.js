@@ -12,6 +12,7 @@ const Updateinfo = ({match}) => {
 	//GET BUILDING ID FROM MATCH PROP
 	const buildingId = match.params.id
 
+	//USE HOOKS TO GET STATE
 	const [image, setImage] = useState('');
 	const [buildingPrice, setBuildingPrice] = useState('');
 	const [neighborhood, setNeighborhood] = useState('');
@@ -21,17 +22,19 @@ const Updateinfo = ({match}) => {
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [phone, setPhone] = useState('');
-	//const zip = useFormInput(data.adress.zip);
 	const [step, setStep] = useState(1);
 	const [confirmed, setConfirmed] = useState(false);
 
+	//COUNTER FOR MULTISTEP FORM
 	const nextStep = () => setStep(step + 1);
 	const prevStep = () => setStep(step - 1);
 
+	//RUNS WHEN THE PAGE FIRST LOADS AND CALL GET BUILDING FUNCTION
 	useEffect(() => {
 	  getBuildingInfo();
 	}, []);
 
+	//MAKES AN API REQUESTS AND GETS THE SPECICIF BUILDING INFO USING THE ID
 	const getBuildingInfo = async () => {
 	  const response = await fetch(`http://localhost:9000/posts/${buildingId}`);
 	  const data = await response.json();
@@ -46,6 +49,7 @@ const Updateinfo = ({match}) => {
 	  setPhone(data.personal.phone);
 	 };  
 
+	//EVENT HANDLERS FOR EVERY INPUT
 	const handleChangePrice = (e) =>  {
 	 	setBuildingPrice(e.target.value);
 	}
@@ -71,17 +75,7 @@ const Updateinfo = ({match}) => {
 		setPhone(e.target.value);
 	}
 
-	/*function useFormInput(initialValue) {
-			const [value, setValue] = useState(initialValue);
-			const handleChange = (e) =>  {
-			setValue(e.target.value);
-		}
-		return {
-			value,
-			onChange: handleChange
-		};
-	} */
-
+	//UPDATES THE BUILDING INFO IF CONFIRMMED
 	const Update = () => {
 		const updatedInfo = {
 			'image': image,
@@ -109,9 +103,15 @@ const Updateinfo = ({match}) => {
 		
 	};
 
+	//STYLE OBJET FOR FORM WRAPPER
+	const styleBgImage = {
+		'backgroundImage': 'url(' + image + ')',
+		'backgroundSize': 'cover'
+	};
+
 	switch(step) {
 		case 1: return(
-				<div className="form__container">
+				<div className="form__container" style={styleBgImage}>
 					<div className="form__progress-bar" style={{'width': `${100/3}%`}}></div>
 					<Updateadress 
 					neighborhood={neighborhood} 
@@ -128,7 +128,7 @@ const Updateinfo = ({match}) => {
 				</div>
 			)
 		case 2: return(
-				<div className="form__container">
+				<div className="form__container" style={styleBgImage}>
 					<div className="form__progress-bar" style={{'width': `${100/3*2}%`}}></div>
 					<Updatepersonal 
 					name={name} 
@@ -144,7 +144,7 @@ const Updateinfo = ({match}) => {
 				</div>
 			)
 		case 3: return(
-				<div className="form__container">
+				<div className="form__container" style={styleBgImage}>
 					<div className="form__progress-bar" ></div>
 					<Updateprice
 					price={buildingPrice}
@@ -156,7 +156,7 @@ const Updateinfo = ({match}) => {
 				</div>
 			)
 		case 4: return(
-				<div className="form__container">
+				<div className="form__container" style={styleBgImage}>
 					<div className="form__progress-bar" ></div>
 					<Confirminfo
 					neighborhood={neighborhood} 
