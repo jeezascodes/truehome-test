@@ -24,8 +24,8 @@ Npm packages and dependencies used in the project
 - nodemon, (automatically restarting the node application when file changes in the directory are detected) https://www.npmjs.com/package/nodemon.
 - Mongoose, (Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment). https://www.npmjs.com/package/mongoose
 - dotenv, (Storing configuration in the environment separate from code) https://www.npmjs.com/package/dotenv.
-- body-parser (Parse incoming request bodies in a middleware before your handlers) https://www.npmjs.com/package/body-parser.
-- cors (for providing a Connect/Express middleware that can be used to enable CORS with various options) https://www.npmjs.com/package/cors.
+- body-parser, (Parse incoming request bodies in a middleware before your handlers) https://www.npmjs.com/package/body-parser.
+- cors. (for providing a Connect/Express middleware that can be used to enable CORS with various options) https://www.npmjs.com/package/cors.
 
 ### Frontend
 
@@ -33,4 +33,14 @@ Npm packages and dependencies used in the project
 - react-dom, (This package serves as the entry point to the DOM and server renderers for React) https://www.npmjs.com/package/react-dom
 - react-scripts, ( includes scripts and configuration used by Create React App). https://www.npmjs.com/package/react-scripts
 - dotenv, (Storing configuration in the environment separate from code) https://www.npmjs.com/package/dotenv.
-- axios (Promise based HTTP client for the browser and node.js) https://www.npmjs.com/package/axios.
+- axios, (Promise based HTTP client for the browser and node.js) https://www.npmjs.com/package/axios.
+
+## Things that could be improved
+
+-Developer dependencies should be save under dev dependencies and not as general dependencies
+-Gitflow (feature specific branches, development branch etc) should be implemented to have a better organized repo
+-Create different mongo collections for every specific set of related data or alternatively use SQL
+-Use Factoriy Functions to handle event changes instead of having a separate function for every input change
+-Use Sass for easier component specific css
+-Use separate component folders for every specific component and its childs
+-Use a dependency like SVGR to handle transforming SVG files into flexible React components
