@@ -11,110 +11,28 @@
     flex-wrap: wrap;
 }
 .card-wrapper {
-	flex: 0 0 33%;
+    flex: 0 0 100%;
+    max-width: 100%;
     align-items: stretch;
-    max-width: 33%;
     padding: 1rem;
     box-sizing: border-box;
     text-decoration: none;
 }
-
-.building__card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    word-wrap: break-word;
-    height: 100%;
-    background-color: #fff;
-    color: #323232;
-    background-clip: border-box;
-    border-radius: 0 0 0rem 8.25rem ;
-    margin-bottom: 1rem;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: all 400ms ease, -webkit-transform 400ms ease;
+@media (min-width: 768px) { 
+    .card-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+    }
 }
-
-.card__image {
-	max-width: 100%;
+@media (min-width: 992px) { 
+    .card-wrapper {
+    flex: 0 0 33%;
+    max-width: 33%;
+    }
 }
-
-.card__body {
-	padding: 2rem;
-	text-align: left;
-	
+@media (min-width: 1200px) { 
+    .card-wrapper {
+    flex: 0 0 25%;
+    max-width: 25%;
+    }
 }
-.card__title {
-    color: rgb(85, 26, 139);
-    transition: all 250ms ease, box-shadow 250ms ease;
-}
-
-.card__icon {
-    width: 2rem;
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 1rem;
-    fill: #ccc;
-    transition: all 250ms ease, box-shadow 250ms ease;
-}
-
-.building__card:hover {
-	 background: #ff4f87;
-	 height: 100%;
-	 color: white;	
-	 border-radius:0 ;
-}
-#Capa_1 {
-    fill: red !important;
-}
-
-.card__adress {
-	margin-bottom: 2rem;
-}
-.card__list-info {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.card__li {
-    margin-bottom: 1rem;
-}
-
-.card__button {
-	position: absolute;
-    bottom: 1rem;
-    width: 30%;
-    right: 10%;
-    background: #ff4f87;
-    padding: .45em 1em;
-    text-align: center;
-    border-radius: 5px;
-    border: none;
-    color: #fff;
-    font-weight: 500;
-    letter-spacing: .2px;
-    font-size: 17px;
-    transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
-    transition: transform 250ms ease, box-shadow 250ms ease;
-    transition: transform 250ms ease, box-shadow 250ms ease, -webkit-transform 250ms ease;
-    transition: all 250ms ease, box-shadow 250ms ease;
-}
-.building__card:hover .card__button {
-	background: white;
-	color: #ff4f87;
-    width: 80%;
-}
-.building__card:hover .card__title {
-    color: white;
-}
-.building__card:hover .card__icon {
-    fill: white
-    ;
-}
-
-/*.card__button:hover {
-	-webkit-transform: translateY(-3px);
-    transform: translateY(-3px);
-    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
-}*/
-    
