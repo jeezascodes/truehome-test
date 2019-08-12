@@ -22,9 +22,7 @@ Npm packages and dependencies used in the project
 
 - Express, (Robust routing,HTTP helpers (redirection, caching, etc),Content negotiation) https://www.npmjs.com/package/express
 - nodemon, (automatically restarting the node application when file changes in the directory are detected) https://www.npmjs.com/package/nodemon.
-- Autoprefixed CSS, so you don’t need `-webkit-` or other prefixes.
-- A fast interactive unit test runner with built-in support for coverage reporting.
-- A live development server that warns about common mistakes.
-- A build script to bundle JS, CSS, and images for production, with hashes and sourcemaps.
-- An offline-first [service worker](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers) and a [web app manifest](https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/), meeting all the [Progressive Web App](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app) criteria. (_Note: Using the service worker is opt-in as of `react-scripts@2.0.0` and higher_)
-- Hassle-free updates for the above tools with a single dependency.
+- Mongoose, (Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment). https://www.npmjs.com/package/mongoose
+- dotenv, (Storing configuration in the environment separate from code) https://www.npmjs.com/package/dotenv.
+- body-parser (Parse incoming request bodies in a middleware before your handlers) https://www.npmjs.com/package/body-parser.
+- cors (for providing a Connect/Express middleware that can be used to enable CORS with various options) https://www.npmjs.com/package/cors.
