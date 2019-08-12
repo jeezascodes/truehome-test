@@ -1,4 +1,7 @@
 import React,{useEffect, useState} from 'react';
+import UserIcon from './icon-components/UserIcon';
+import EmailIcon from './icon-components/EmailIcon';
+import PhoneIcon from './icon-components/PhoneIcon';
 import {Link} from 'react-router-dom';
 
 const Building = ({id,image, price,name,email,phone, neighborhood, street, number, zip}) => {
@@ -7,11 +10,11 @@ const Building = ({id,image, price,name,email,phone, neighborhood, street, numbe
 				<div className="building__card">
 					<img className="card__image" src={image} alt="{price}" />
 					<div className="card__body">
-						<h1 >{price}</h1>
-						<ul>
-							<li>Nombre: {name}</li>
-							<li>Email: {email}</li>
-							<li>Telefono: {phone}</li>
+						<h1 className="card__title">{price}</h1>
+						<ul className="card__list-info">
+							<li className="card__li"><UserIcon />{name}</li>
+							<li className="card__li"><EmailIcon />{email}</li>
+							<li className="card__li"><PhoneIcon />{phone}</li>
 						</ul>
 						<div className="card__adress">
 							<p className="">Colonia: {neighborhood}</p>

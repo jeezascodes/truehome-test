@@ -26,8 +26,8 @@
     word-wrap: break-word;
     height: 100%;
     background-color: #fff;
+    color: #323232;
     background-clip: border-box;
-    /*border-radius: 0.25rem;*/
     border-radius: 0 0 0rem 8.25rem ;
     margin-bottom: 1rem;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
@@ -44,6 +44,19 @@
 	text-align: left;
 	
 }
+.card__title {
+    color: rgb(85, 26, 139);
+    transition: all 250ms ease, box-shadow 250ms ease;
+}
+
+.card__icon {
+    width: 2rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1rem;
+    fill: #ccc;
+    transition: all 250ms ease, box-shadow 250ms ease;
+}
 
 .building__card:hover {
 	 background: #ff4f87;
@@ -51,9 +64,20 @@
 	 color: white;	
 	 border-radius:0 ;
 }
+#Capa_1 {
+    fill: red !important;
+}
 
 .card__adress {
 	margin-bottom: 2rem;
+}
+.card__list-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.card__li {
+    margin-bottom: 1rem;
 }
 
 .card__button {
@@ -79,6 +103,13 @@
 	background: white;
 	color: #ff4f87;
     width: 80%;
+}
+.building__card:hover .card__title {
+    color: white;
+}
+.building__card:hover .card__icon {
+    fill: white
+    ;
 }
 
 /*.card__button:hover {
